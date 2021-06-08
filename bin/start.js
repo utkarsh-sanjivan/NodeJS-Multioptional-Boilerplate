@@ -1,9 +1,14 @@
 #!/usr/bin/env node
 const path = require('path');
 const fs = require('fs-extra');
-const { spawnSync } = require('child_process');
+const { spawn } = require('child_process');
 
-
+/*
+    * Returns a boolean value that tells wether the selected
+    * scripting method is 'Typescript' or not.
+    * 
+    * @param agrv - Argument value 
+*/
 function getScriptingMethod(argv) {
     let scriptingMethod = argv.find(arg => arg.indexOf('--script=')>-1);
     if (scriptingMethod) { 
@@ -16,6 +21,12 @@ function getScriptingMethod(argv) {
     return false;
 }
 
+
+/*
+    * 1. Copies the files and folder folder based on the 
+    *    scripting selection.
+    * 2. Installs the dependencies.
+*/
 function initApplication() {
     console.log('Preperaing to setup the boilerplate');
 
@@ -26,7 +37,6 @@ function initApplication() {
         'v1',
         '.'
     );
-
     fs.copySync(templateFolder, './');
     
     console.log('Installing modules...');

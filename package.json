@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "create-node-jest-app": "./bin/start.js"
+    "create-node-base-app": "./bin/start.js"
   },
   "keywords": [
     "node",
