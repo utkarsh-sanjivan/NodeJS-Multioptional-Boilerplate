@@ -1,0 +1,17 @@
+{
+    "clearMocks": true,
+    "collectCoverageFrom": ["**/*.ts"],
+    "coverageDirectory": "./coverage",
+    "coveragePathIgnorePatterns": ["/node_modules/", "./build/"],
+    "displayName": {
+        "name": "CLIENT",
+        "color": "blue"
+    },
+    "notify": true,
+    "notifyMode": "always",
+    "preset": "ts-jest",
+    "resetMocks": false,
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": ["/node_modules/", "./build/"],
+    "verbose": true
+}

@@ -1,0 +1,37 @@
+{
+  "name": "nodejs-multioptional-boilerplate",
+  "version": "1.0.0",
+  "description": "This is a boilerplate for creating Node JS setup with multiple options.",
+  "main": "index.js",
+  "engines": {
+    "node": ">=14.7.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "create-node-jest-app": "./bin/start.js"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "eslint",
+    "jest",
+    "supertest",
+    "winston",
+    "husky"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/utkarsh-sanjivan/nodejs-multioptional-boilerplate.git"
+  },
+  "author": "Utkarsh Sanjivan <utkarsh.sannu@gmail.com>",
+  "license": "X11",
+  "dependencies": {
+    "fs-extra": "9.0.1"
+  },
+  "bugs": {
+    "url": "https://github.com/utkarsh-sanjivan/nodejs-multioptional-boilerplate/issues"
+  },
+  "homepage": "https://github.com/utkarsh-sanjivan/nodejs-multioptional-boilerplate#readme"
+}

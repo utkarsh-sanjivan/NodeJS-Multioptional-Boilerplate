@@ -1,0 +1,16 @@
+{
+    "clearMocks": true,
+    "collectCoverageFrom": ["**/*.js"],
+    "coverageDirectory": "./coverage",
+    "coveragePathIgnorePatterns": ["/node_modules/"],
+    "displayName": {
+        "name": "CLIENT",
+        "color": "blue"
+    },
+    "notify": true,
+    "notifyMode": "always",
+    "resetMocks": false,
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": ["/node_modules/", "./build/"],
+    "verbose": true
+}
