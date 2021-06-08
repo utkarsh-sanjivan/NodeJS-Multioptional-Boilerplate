@@ -1,6 +1,6 @@
 {
   "name": "nodejs-multioptional-boilerplate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This is a boilerplate for creating Node JS setup with multiple options.",
   "main": "index.js",
   "engines": {
