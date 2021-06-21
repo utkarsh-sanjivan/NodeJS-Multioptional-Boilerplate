@@ -28,6 +28,8 @@
         "func-names": "off",
         "no-underscore-dangle": "off",
         "consistent-return": "off",
+        "eol-last": ["error", "always"],
+        "jest/no-conditional-expect": "off",
         "jest/expect-expect": "off",
         "jest/no-done-callback": "off",
         "security/detect-object-injection": "off",

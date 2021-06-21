@@ -2,7 +2,8 @@
     "clearMocks": true,
     "collectCoverageFrom": ["**/*.ts"],
     "coverageDirectory": "./coverage",
-    "coveragePathIgnorePatterns": ["/node_modules/", "./build/"],
+    "coverageReporters": ["text", "lcov", "clover", "html"],
+    "coveragePathIgnorePatterns": ["/node_modules/", "./build/", "index.js", "/coverage/", "/config/"],
     "displayName": {
         "name": "CLIENT",
         "color": "blue"

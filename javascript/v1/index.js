@@ -1,22 +1,28 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const logger = require('./utils/logger');
-const Router = require('./routes/index');
-const morganMiddleware = require('./middleware/morganMiddleware');
-require('dotenv').config();
+const app = require('./app');
+const config = require('./config/config');
+const logger = require('./config/logger');
 
-const app = express();
+const server = app.listen(config.port, async () => {
+	logger.info(`Server started on port ${config.port}`);
+});
 
-app.use(cors());
-app.use(morganMiddleware);
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-Router(app);
-
-if (process.env.NODE_ENV !== 'test') {
-	app.listen(process.env.PORT, async () => {
-		logger.info(`Server started on port ${process.env.PORT}`);
+const exitHandler = () => {
+	server.close(() => {
+		logger.info('Server closed');
+		process.exit(1);
 	});
-}
-module.exports = app;
+};
+
+const unexpectedErrorHandler = error => {
+	logger.error(error);
+	exitHandler();
+};
+
+const sigtermHandler = () => {
+	logger.info('SIGTERM received');
+	server.close();
+};
+
+process.on('uncaughtException', unexpectedErrorHandler);
+process.on('unhandledRejection', unexpectedErrorHandler);
+process.on('SIGTERM', () => sigtermHandler);

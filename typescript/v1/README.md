@@ -1,2 +1,2 @@
-# node-ts-jest-boilerplate
-This is a boilerplate for Node JS with Typescript, Jest and supertest.
+# node-js-jest-boilerplate
+This is a boilerplate for Node JS with Jest and supertest.

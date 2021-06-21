@@ -1,7 +1,6 @@
-import winston from 'winston';
-import dateFormatters from './dateFormatters';
-
-require('dotenv').config();
+const winston = require('winston');
+const moment = require('moment');
+const config = require('./config');
 
 const levels = {
 	error: 0,
@@ -12,7 +11,7 @@ const levels = {
 };
 
 const level = () => {
-	const env = process.env.NODE_ENV || 'development';
+	const env = config.env || 'development';
 	const isDevelopment = env === 'development';
 	return isDevelopment ? 'debug' : 'warn';
 };
@@ -22,7 +21,7 @@ const colorizer = winston.format.colorize({ all: true });
 const colors = {
 	error: 'red',
 	warn: 'yellow',
-	info: 'green',
+	info: 'cyan',
 	http: 'magenta',
 	debug: 'white',
 };
@@ -35,7 +34,7 @@ const transports = [
 	new winston.transports.Console({
 		format: winston.format.combine(
 			format,
-			winston.format.printf((info: any) =>
+			winston.format.printf(info =>
 				colorizer.colorize(info.level, `${info.timestamp} | ${info.level.toUpperCase()}: ${info.message}`)
 			)
 		),
@@ -44,15 +43,15 @@ const transports = [
 	new winston.transports.File({
 		format: winston.format.combine(
 			format,
-			winston.format.printf((info: any) => `${info.timestamp} | ${info.level.toUpperCase()}: ${info.message}`)
+			winston.format.printf(info => `${info.timestamp} | ${info.level.toUpperCase()}: ${info.message}`)
 		),
-		filename: `logs/access-log-${dateFormatters.getDateString()}-log-file.log`,
+		filename: `logs/access-log-${moment().format('YYYY-MM-DD')}-log-file.log`,
 		level: 'debug',
-		silent: process.env.NODE_ENV !== 'development',
+		silent: config.env !== 'development',
 	}),
 ];
 
-export default winston.createLogger({
+module.exports = winston.createLogger({
 	level: level(),
 	levels,
 	format,

@@ -1,23 +1,28 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import cors from 'cors';
-import logger from './utils/logger';
-import Router from './routes/index';
-import morganMiddleware from './middleware/morganMiddleware';
+import app from './app';
+import config from './config/config';
+import logger from './config/logger';
 
-require('dotenv').config();
+const server = app.listen(config.port, async () => {
+	logger.info(`Server started on port ${config.port}`);
+});
 
-const app = express();
-
-app.use(cors());
-app.use(morganMiddleware);
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-Router(app);
-
-if (process.env.NODE_ENV !== 'test') {
-	app.listen(process.env.PORT, async () => {
-		logger.info(`Server started on port ${process.env.PORT}`);
+const exitHandler = () => {
+	server.close(() => {
+		logger.info('Server closed');
+		process.exit(1);
 	});
-}
-export default app;
+};
+
+const unexpectedErrorHandler = (error: any) => {
+	logger.error(error);
+	exitHandler();
+};
+
+const sigtermHandler = () => {
+	logger.info('SIGTERM received');
+	server.close();
+};
+
+process.on('uncaughtException', unexpectedErrorHandler);
+process.on('unhandledRejection', unexpectedErrorHandler);
+process.on('SIGTERM', () => sigtermHandler);

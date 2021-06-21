@@ -1,5 +1,8 @@
+import express from 'express';
 import testRoute from './test.routes';
 
-export default (app: any) => {
-	app.use('/test', testRoute);
-};
+const router = express.Router();
+
+router.use('/test', testRoute);
+
+export default router;
