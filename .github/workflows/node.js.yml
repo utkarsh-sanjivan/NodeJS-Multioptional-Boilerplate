@@ -26,6 +26,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
+    - name: Typescript Test
+      run: node ./bin/createNodeApp.js --folder node-ts-example
+
     # - name: Install dependencies for Javascript one
     #   run: cd javascript/v1 && npm install
 
