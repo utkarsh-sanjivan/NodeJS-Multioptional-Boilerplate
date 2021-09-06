@@ -7,10 +7,10 @@
     "node": ">=14.7.0"
   },
   "scripts": {
-    "test-script": "node ./bin/start.js"
+    "test-script": "node ./bin/createNodeApp.js"
   },
   "bin": {
-    "create-node-base-app": "./bin/start.js"
+    "create-node-base-app": "./bin/createNodeApp.js"
   },
   "keywords": [
     "node",
