@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
-    "eslint:check": "eslint **/*.js",
+    "eslint:check": "eslint",
     "eslint:fix": "eslint **/*.js --fix",
     "prettier:check": "prettier --check **/*.js",
     "prettier:fix": "prettier --write **/*.js",
