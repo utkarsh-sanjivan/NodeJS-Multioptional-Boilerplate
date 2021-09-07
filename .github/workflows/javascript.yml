@@ -26,8 +26,11 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Install dependencies for Javascript one
+    - name: Install dependencies
       run: npm install
+
+    - name: Test command
+      run: node ./bin/createNodeApp.js --folder node-js-project && cd node-js-project && npm run test && npm run eslint:check
 
     - name: Create Boilerplate Project
       run: node ./bin/createNodeApp.js --folder node-js-project
