@@ -32,14 +32,11 @@ jobs:
     - name: Create Boilerplate Project
       run: node ./bin/createNodeApp.js --folder node-js-project
 
-    - name: Open the Project
-      run: cd node-js-project
-
     - name: Eslint check
-      run: npm run eslint:check
+      run: cd node-js-project && npm run eslint:check
 
     - name: Prettier check
-      run: npm run prettier:check
+      run: cd node-js-project && npm run prettier:check
 
     - name: Run Tests
-      run: npm run test
+      run: cd node-js-project && npm run test
