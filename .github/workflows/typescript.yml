@@ -26,7 +26,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Install dependencies for Javascript one
+    - name: Install dependencies
       run: npm install
 
     - name: Create Boilerplate Project
@@ -36,7 +36,7 @@ jobs:
       run: cd node-ts-project
 
     - name: Eslint check
-      run: cd node-ts-project && npm run eslint:check
+      run: npm run eslint:check
 
     - name: Prettier check
       run: npm run prettier:check
