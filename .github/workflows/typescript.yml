@@ -30,7 +30,7 @@ jobs:
       run: npm install
 
     - name: Create Boilerplate Project
-      run: node ./bin/createNodeApp.js --folder node-ts-project
+      run: node ./bin/createNodeApp.js --folder node-ts-project --script ts
 
     - name: Eslint check
       run: cd node-ts-project && npm run eslint:check
