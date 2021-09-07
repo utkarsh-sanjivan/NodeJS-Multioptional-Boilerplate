@@ -1,5 +1,6 @@
-node_modules/
+node_modules
 build
 coverage
 package.json
 package-lock.json
+node_modules/decimal.js
