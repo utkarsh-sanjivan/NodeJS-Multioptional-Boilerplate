@@ -7,7 +7,7 @@
   "scripts": {
     "start": "nodemon index.ts",
     "build": "tsc",
-    "eslint:check": "eslint **/*.ts",
+    "eslint:check": "eslint",
     "eslint:fix": "eslint **/*.ts --fix",
     "prettier:check": "prettier --check **/*.ts",
     "prettier:fix": "prettier --write **/*.ts",
