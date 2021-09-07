@@ -30,7 +30,7 @@ jobs:
       run: npm install
 
     - name: Test command
-      run: node ./bin/createNodeApp.js --folder node-js-project && cd node-js-project && npm run test && npm run eslint:check
+      run: node ./bin/createNodeApp.js --folder node-js-project && cd node-js-project && npm run test && npm run prettier:check
 
     - name: Create Boilerplate Project
       run: node ./bin/createNodeApp.js --folder node-js-project
