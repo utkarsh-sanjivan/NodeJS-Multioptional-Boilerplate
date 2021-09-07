@@ -36,7 +36,7 @@ jobs:
       run: cd node-ts-project
 
     - name: Eslint check
-      run: npm run eslint:check
+      run: cd node-ts-project && npm run eslint:check
 
     - name: Prettier check
       run: npm run prettier:check
