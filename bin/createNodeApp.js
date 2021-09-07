@@ -28,7 +28,7 @@ function getArguments(argv) {
 
 
 /**
- * Creates foler if required copies the required folder and files and installs the module.
+ * Creates folder if required copies the required folder and files and installs the module.
  */
 function initApplication() {
     const { isJs, folderName, env } = getArguments(process.argv);

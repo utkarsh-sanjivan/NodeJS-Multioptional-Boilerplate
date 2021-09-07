@@ -7,7 +7,8 @@
     "node": ">=14.7.0"
   },
   "scripts": {
-    "test-script": "node ./bin/createNodeApp.js"
+    "create-app": "node ./bin/createNodeApp.js",
+    "test": "test.sh"
   },
   "bin": {
     "create-node-base-app": "./bin/createNodeApp.js"
